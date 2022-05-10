@@ -3,6 +3,7 @@ import fluoride from '../../assets/images/fluoride.png'
 import cavity from '../../assets/images/cavity.png'
 import whitening from '../../assets/images/whitening.png'
 import Service from "./Service";
+import ServiceDetails from "./ServiceDetails";
 
 //ctrl + D is to select same word 
 const Services = () => {
@@ -38,6 +39,9 @@ const Services = () => {
           {
               services.map(service => <Service key={service._id} service={service}></Service>)
           }
+      </div>
+      <div>
+          <ServiceDetails></ServiceDetails>
       </div>
     </div>
   );

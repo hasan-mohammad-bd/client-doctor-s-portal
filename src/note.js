@@ -1,0 +1,3 @@
+/* 
+This is the note created for keeping important info. 
+*/

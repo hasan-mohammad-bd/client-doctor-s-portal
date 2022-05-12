@@ -1,3 +1,5 @@
 /* 
 This is the note created for keeping important info. 
+this is second day i am practicing this project 
+
 */

@@ -1,9 +1,11 @@
 import React from 'react';
+import footer from '../../assets/images/footer.png'
 
 const FooterNav = () => {
     return (
-<footer className="footer p-10 bg-neutral text-neutral-content">
-  <div>
+<footer style={{background: `url(${footer})`,backgroundSize: 'cover'}} className="text-black p-10 bg-neutral text-neutral-content">
+<div className='footer flex justify-around'>
+<div className=''>
     <span className="footer-title">Services</span> 
     <a className="link link-hover">Branding</a>
     <a className="link link-hover">Design</a>
@@ -22,6 +24,10 @@ const FooterNav = () => {
     <a className="link link-hover">Terms of use</a>
     <a className="link link-hover">Privacy policy</a>
     <a className="link link-hover">Cookie policy</a>
+  </div>
+</div>
+<div className='text-center py-10'>
+    <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
   </div>
 </footer>
     );

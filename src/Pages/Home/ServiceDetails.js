@@ -3,11 +3,11 @@ import treatment from '../../assets/images/treatment.png';
 
 const ServiceDetails = () => {
     return (
-        <div className="hero min-h-screen bg-white-200">
+        <div className="hero min-h-screen bg-white-200 py-10">
         <div className="hero-content flex-col lg:flex-row">
           <img
             src={treatment}
-            className="max-w-sm rounded-lg shadow-2xl flex-1"
+            className="md:w-1/2 rounded-lg shadow-2xl flex-1"
             alt=''
           />
           <div className="flex-1">

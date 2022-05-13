@@ -4,7 +4,7 @@ import footer from '../../assets/images/footer.png'
 const FooterNav = () => {
     return (
 <footer style={{background: `url(${footer})`,backgroundSize: 'cover'}} className="text-black p-10 bg-neutral text-neutral-content">
-<div className='footer flex justify-around'>
+<div className='footer flex justify-around text-black'>
 <div className=''>
     <span className="footer-title">Services</span> 
     <a className="link link-hover">Branding</a>

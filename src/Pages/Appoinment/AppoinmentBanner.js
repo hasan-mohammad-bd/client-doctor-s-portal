@@ -14,6 +14,7 @@ const AppoinmentBanner = ({date, setDate}) => {
     <div>
     <DayPicker
     mode='single'
+    className='mr-16'
     selected={date}
     onSelect={setDate}
     />

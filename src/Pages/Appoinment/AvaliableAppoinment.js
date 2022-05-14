@@ -8,13 +8,13 @@ const AvaliableAppoinment = ({ date }) => {
     const [treatment, setTreatment] = useState(null)
 
     useEffect(()=>{
-        fetch('services.json')
+        fetch('http://localhost:5000/service')
         .then(res => res.json())
         .then(data => setServices(data))
     },[])
   return (
-    <div>
-      <p className="text-secondary text-center">
+    <div className="my-12">
+      <p className="text-secondary text-xl text-center">
         You have selected: {format(date, "PP")}
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

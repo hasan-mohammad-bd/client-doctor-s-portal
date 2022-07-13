@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
-import { Link } from "react-router-dom"
- 
+import { Link } from "react-router-dom";
+
 const MyAppointment = () => {
   const [appointments, setAppointments] = useState([]);
   const [user] = useAuthState(auth);
@@ -12,26 +12,27 @@ const MyAppointment = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`https://quiet-stream-55669.herokuapp.com/booking?patient=${user.email}`, {
-          method: 'GET',
-          headers:{
-              'authorization': `bearer ${localStorage.getItem('accessToken')}`
-          }
-      })
-      //================================================
+      fetch(
+        `https://quiet-stream-55669.herokuapp.com/booking?patient=${user.email}`,
+        {
+          method: "GET",
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      )
+        //================================================
         .then((res) => {
-            if(res.status === 401 || res.status === 403){
-                signOut(auth)
-                localStorage.removeItem('accessToken');
-                navigate('/')
-            }
-            else{
-                return res.json()
-            }
-           
+          if (res.status === 401 || res.status === 403) {
+            signOut(auth);
+            localStorage.removeItem("accessToken");
+            navigate("/");
+          } else {
+            return res.json();
+          }
         })
         .then((data) => setAppointments(data));
-        //==============================================
+      //==============================================
     }
   }, [user]);
   return (
@@ -52,20 +53,32 @@ const MyAppointment = () => {
             </tr>
           </thead>
           <tbody>
-            {appointments.map((a,index) => (
+            {appointments.map((a, index) => (
               <tr>
-                  <th>{index+1}</th>
+                <th>{index + 1}</th>
                 <th>{a.patientName}</th>
                 <th>{a.patient_email}</th>
                 <td>{a.date}</td>
                 <td>{a.slot}</td>
                 <td>{a.treatment}</td>
                 <td>
-                  {(a.price && !a.paid ) && <Link to={`/dashboard/payment/${a._id}`}><button className="btn btn-xs btn-success">Pay</button></Link>}
-                  {(a.price && a.paid ) && <span className="text-success">Paid</span>}
-                  
-                  </td>
-
+                  {a.price && !a.paid && (
+                    <Link to={`/dashboard/payment/${a._id}`}>
+                      <button className="btn btn-xs btn-success">Pay</button>
+                    </Link>
+                  )}
+                  {a.price && a.paid && (
+                    <div>
+                      <p>
+                        <span className="text-success">Paid</span>
+                      </p>
+                      <p>
+                        Transaction id:{" "}
+                        <span className="text-success">{a.transactionId}</span>
+                      </p>
+                    </div>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>

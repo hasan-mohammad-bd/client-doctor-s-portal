@@ -2,8 +2,7 @@ import React from "react";
 import { toast } from "react-toastify";
 
 const DoctorRows = ({ doctor, index, setDeletingDoctor }) => {
-  const { name, specialty, img , email} = doctor;
-
+  const { name, specialty, img, email } = doctor;
 
   return (
     <tr>
@@ -18,8 +17,13 @@ const DoctorRows = ({ doctor, index, setDeletingDoctor }) => {
       <td>{name}</td>
       <td>{specialty}</td>
       <td>
-
-      <label onClick={()=>setDeletingDoctor(doctor)} htmlFor="delete-confirm-modal" class="btn btn-xs btn-error">Delete</label>
+        <label
+          onClick={() => setDeletingDoctor(doctor)}
+          htmlFor="delete-confirm-modal"
+          class="btn btn-xs btn-error"
+        >
+          Delete
+        </label>
       </td>
     </tr>
   );

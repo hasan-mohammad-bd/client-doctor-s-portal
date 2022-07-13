@@ -15,7 +15,7 @@ const AddDoctor = () => {
 const imageStorageKey = '8d799c0a039c8e9eb8a5863caa8d7d22';
 
   const { data: services, isLoading } = useQuery("services", () =>
-    fetch("http://localhost:5000/service").then((res) => res.json())
+    fetch("https://quiet-stream-55669.herokuapp.com/service").then((res) => res.json())
   );
 
   const onSubmit = async (data) => {
@@ -39,7 +39,7 @@ const imageStorageKey = '8d799c0a039c8e9eb8a5863caa8d7d22';
 
             }
             //send to your database.
-            fetch('http://localhost:5000/doctor', {
+            fetch('https://quiet-stream-55669.herokuapp.com/doctor', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
